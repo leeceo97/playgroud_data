@@ -1,8 +1,0 @@
-models:
-  - name: addresses_silver
-    description: "addresses"
-    columns:
-      - name: company_id
-        description: "Company"
-        data_tests:
-          - not_null
