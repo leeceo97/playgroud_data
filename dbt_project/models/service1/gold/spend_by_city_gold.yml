@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: spend_by_city_gold
+    description: "도시별 총 지출 데이터를 집계한 골드 레이어 모델입니다. addresses_silver 모델에서 city 기준으로 그룹화하여 총 지출을 계산합니다."
+    columns:
+      - name: city
+        description: "도시 이름입니다. 그룹화 기준이 되며, 고유해야 합니다."
+        tests:
+          - not_null
+          - unique
+
+      - name: total_spend
+        description: "해당 도시의 총 지출 금액입니다. addresses_silver에서 집계된 값입니다."
+        tests:
+          - not_null

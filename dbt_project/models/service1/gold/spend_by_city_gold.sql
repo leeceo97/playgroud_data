@@ -1,2 +1,2 @@
 {{ config(schema='gold')}}
-select city, sum(total_spend) from {{ ref('addresses_silver') }} group by city
+select city, sum(total_spend) as total_spend from {{ ref('addresses_silver') }} group by city
