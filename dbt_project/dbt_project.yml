@@ -34,7 +34,10 @@ models:
     service1:
       bronze:
         +materialized: table
+        +tags: ["bronze", "service1"]
       silver:
         +materialized: table
-      gole:
-        +materialized: view
+        +tags: ["silver", "service1"]
+      gold:
+        +materialized: materialized_view
+        +tags: ["gold", "service1"]
