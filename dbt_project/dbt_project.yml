@@ -1,4 +1,3 @@
-
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
@@ -41,3 +40,21 @@ models:
       mart:
         +materialized: table
         +tags: ["mart", "main_service"]
+      +persist_docs:
+        enabled: true
+        columns: true
+    
+    # CDC-based data pipeline
+    cdc_pipeline:
+      raw:
+        +materialized: table
+        +tags: ["raw", "cdc"]
+      cleansing:
+        +materialized: table
+        +tags: ["cleansing", "cdc"]
+      mart:
+        +materialized: table
+        +tags: ["mart", "cdc"]
+      +persist_docs:
+        enabled: true
+        columns: true

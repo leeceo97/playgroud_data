@@ -1,0 +1,63 @@
+version: 2
+
+sources:
+  - name: dev
+    database: MAIN_SERVICE
+    schema: DEV
+    description: "CDC source tables in DEV schema"
+
+    tables:
+      - name: addresses_cdc
+        description: "Address information CDC table (includes all change history)"
+        columns:
+          - name: ID
+            description: "Unique address identifier"
+            tests:
+              - not_null
+
+          - name: PERSON_NAME
+            description: "Person name"
+
+          - name: STREET
+            description: "Street address"
+
+          - name: CITY_ID
+            description: "City ID (references cities table)"
+
+          - name: _AB_CDC_LSN
+            description: "Log Sequence Number - tracks change order"
+
+          - name: _AB_CDC_UPDATED_AT
+            description: "Record update timestamp"
+
+          - name: _AB_CDC_DELETED_AT
+            description: "Record deletion timestamp (NULL if not deleted)"
+
+          - name: OP
+            description: "CDC operation type (c=create, u=update, d=delete)"
+
+      - name: cities_cdc
+        description: "City information CDC table (includes all change history)"
+        columns:
+          - name: ID
+            description: "Unique city identifier"
+            tests:
+              - not_null
+
+          - name: CITY_NAME
+            description: "City name"
+
+          - name: COUNTRY
+            description: "Country name"
+
+          - name: _AB_CDC_LSN
+            description: "Log Sequence Number - tracks change order"
+
+          - name: _AB_CDC_UPDATED_AT
+            description: "Record update timestamp"
+
+          - name: _AB_CDC_DELETED_AT
+            description: "Record deletion timestamp (NULL if not deleted)"
+
+          - name: OP
+            description: "CDC operation type (c=create, u=update, d=delete)"
