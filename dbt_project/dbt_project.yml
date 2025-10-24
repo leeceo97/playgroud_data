@@ -31,13 +31,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   dbt_project:
-    service1:
-      bronze:
+    main_service:
+      raw:
         +materialized: table
-        +tags: ["bronze", "service1"]
-      silver:
+        +tags: ["raw", "main_service"]
+      cleansing:
         +materialized: table
-        +tags: ["silver", "service1"]
-      gold:
-        +materialized: materialized_view
-        +tags: ["gold", "service1"]
+        +tags: ["cleansing", "main_service"]
+      mart:
+        +materialized: table
+        +tags: ["mart", "main_service"]

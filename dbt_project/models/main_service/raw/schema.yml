@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: addresses_bronze
+  - name: addresses
     description: "Raw address data loaded from public.addresses"
     columns:
       - name: company_id
@@ -13,7 +13,7 @@ models:
       - name: total_spend
         description: "회사 소비 가격"
 
-  - name: cities_bronze
+  - name: cities
     description: "Raw city data loaded from public.cities"
     columns:
       - name: c1
